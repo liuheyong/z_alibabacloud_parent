@@ -15,23 +15,10 @@
  */
 package com.cloud3.sentinel.filter;
 
-import com.alibaba.csp.sentinel.dashboard.auth.AuthService;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Servlet Filter that authenticate requests.
@@ -50,21 +37,35 @@ import java.util.List;
  * @since 1.6.0
  */
 @Component
-public class AuthFilter implements Filter {
+public class AuthFilter<AuthService> implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
 
-    private static final String URL_SUFFIX_DOT = ".";
+    }
 
-    /**Some urls which needn't auth, such as /auth/login,/registry/machine and so on*/
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+
+    /*private static final String URL_SUFFIX_DOT = ".";
+
+    *//**Some urls which needn't auth, such as /auth/login,/registry/machine and so on*//*
     @Value("#{'${auth.filter.exclude-urls}'.split(',')}")
     private List<String> authFilterExcludeUrls;
 
-    /**Some urls with suffixes which needn't auth, such as htm,html,js and so on*/
+    *//**Some urls with suffixes which needn't auth, such as htm,html,js and so on*//*
     @Value("#{'${auth.filter.exclude-url-suffixes}'.split(',')}")
     private List<String> authFilterExcludeUrlSuffixes;
 
-    /**Authentication using AuthService interface*/
+    *//**Authentication using AuthService interface*//*
     @Autowired
-    private AuthService<HttpServletRequest> authService;
+    private AuthService authService;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -114,5 +115,5 @@ public class AuthFilter implements Filter {
     @Override
     public void destroy() {
 
-    }
+    }*/
 }

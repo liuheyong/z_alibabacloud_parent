@@ -15,68 +15,6 @@
  */
 package com.cloud3.sentinel.client;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
-
-import com.alibaba.csp.sentinel.command.CommandConstants;
-import com.alibaba.csp.sentinel.config.SentinelConfig;
-import com.alibaba.csp.sentinel.command.vo.NodeVo;
-import com.alibaba.csp.sentinel.dashboard.util.AsyncUtils;
-import com.alibaba.csp.sentinel.slots.block.Rule;
-import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRule;
-import com.alibaba.csp.sentinel.slots.block.degrade.DegradeRule;
-import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
-import com.alibaba.csp.sentinel.slots.block.flow.param.ParamFlowRule;
-import com.alibaba.csp.sentinel.slots.system.SystemRule;
-import com.alibaba.csp.sentinel.util.AssertUtil;
-import com.alibaba.csp.sentinel.util.StringUtil;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.SentinelVersion;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.AuthorityRuleEntity;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.FlowRuleEntity;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.ParamFlowRuleEntity;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.RuleEntity;
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.SystemRuleEntity;
-import com.alibaba.csp.sentinel.dashboard.discovery.AppManagement;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.ClusterClientInfoVO;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.state.ClusterServerStateVO;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.state.ClusterStateSimpleEntity;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ClusterClientConfig;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerFlowConfig;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerTransportConfig;
-import com.alibaba.csp.sentinel.dashboard.util.VersionUtils;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.concurrent.FutureCallback;
-import org.apache.http.entity.ContentType;
-import org.apache.http.impl.client.DefaultRedirectStrategy;
-import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
-import org.apache.http.impl.nio.client.HttpAsyncClients;
-import org.apache.http.impl.nio.reactor.IOReactorConfig;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 /**
@@ -86,7 +24,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class SentinelApiClient {
-    private static Logger logger = LoggerFactory.getLogger(SentinelApiClient.class);
+    /*private static Logger logger = LoggerFactory.getLogger(SentinelApiClient.class);
 
     private static final Charset DEFAULT_CHARSET = Charset.forName(SentinelConfig.charset());
 
@@ -198,19 +136,19 @@ public class SentinelApiClient {
         return EntityUtils.toString(response.getEntity(), charset != null ? charset : DEFAULT_CHARSET);
     }
     
-    /**
+    *//**
      * With no param
      * 
      * @param ip
      * @param port
      * @param api
      * @return
-     */
+     *//*
     private CompletableFuture<String> executeCommand(String ip, int port, String api, boolean useHttpPost) {
         return executeCommand(ip, port, api, null, useHttpPost);
     }
     
-    /**
+    *//**
      * No app specified, force to GET
      * 
      * @param ip
@@ -218,12 +156,12 @@ public class SentinelApiClient {
      * @param api
      * @param params
      * @return
-     */
+     *//*
     private CompletableFuture<String> executeCommand(String ip, int port, String api, Map<String, String> params, boolean useHttpPost) {
         return executeCommand(null, ip, port, api, params, useHttpPost);
     }
 
-    /**
+    *//**
      * Prefer to execute request using POST
      * 
      * @param app
@@ -232,7 +170,7 @@ public class SentinelApiClient {
      * @param api
      * @param params
      * @return
-     */
+     *//*
     private CompletableFuture<String> executeCommand(String app, String ip, int port, String api, Map<String, String> params, boolean useHttpPost) {
         CompletableFuture<String> future = new CompletableFuture<>();
         if (StringUtil.isBlank(ip) || StringUtil.isBlank(api)) {
@@ -375,14 +313,14 @@ public class SentinelApiClient {
         return fetchItems(ip, port, RESOURCE_URL_PATH, type, NodeVo.class);
     }
 
-    /**
+    *//**
      * Fetch cluster node.
      *
      * @param ip          ip to fetch
      * @param port        port of the ip
      * @param includeZero whether zero value should in the result list.
      * @return
-     */
+     *//*
     public List<NodeVo> fetchClusterNodeOfMachine(String ip, int port, boolean includeZero) {
         String type = "noZero";
         if (includeZero) {
@@ -421,7 +359,7 @@ public class SentinelApiClient {
         }
     }
 
-    /**
+    *//**
      * Fetch all parameter flow rules from provided machine.
      *
      * @param app  application name
@@ -429,7 +367,7 @@ public class SentinelApiClient {
      * @param port machine client port
      * @return all retrieved parameter flow rules
      * @since 0.2.1
-     */
+     *//*
     public CompletableFuture<List<ParamFlowRuleEntity>> fetchParamFlowRulesOfMachine(String app, String ip, int port) {
         try {
             AssertUtil.notEmpty(app, "Bad app name");
@@ -446,7 +384,7 @@ public class SentinelApiClient {
         }
     }
 
-    /**
+    *//**
      * Fetch all authority rules from provided machine.
      *
      * @param app  application name
@@ -454,7 +392,7 @@ public class SentinelApiClient {
      * @param port machine client port
      * @return all retrieved authority rules
      * @since 0.2.1
-     */
+     *//*
     public List<AuthorityRuleEntity> fetchAuthorityRulesOfMachine(String app, String ip, int port) {
         AssertUtil.notEmpty(app, "Bad app name");
         AssertUtil.notEmpty(ip, "Bad machine IP");
@@ -468,7 +406,7 @@ public class SentinelApiClient {
                 ).orElse(null);
     }
 
-    /**
+    *//**
      * set rules of the machine. rules == null will return immediately;
      * rules.isEmpty() means setting the rules to empty.
      *
@@ -477,12 +415,12 @@ public class SentinelApiClient {
      * @param port
      * @param rules
      * @return whether successfully set the rules.
-     */
+     *//*
     public boolean setFlowRuleOfMachine(String app, String ip, int port, List<FlowRuleEntity> rules) {
         return setRules(app, ip, port, FLOW_RULE_TYPE, rules);
     }
 
-    /**
+    *//**
      * set rules of the machine. rules == null will return immediately;
      * rules.isEmpty() means setting the rules to empty.
      *
@@ -491,12 +429,12 @@ public class SentinelApiClient {
      * @param port
      * @param rules
      * @return whether successfully set the rules.
-     */
+     *//*
     public boolean setDegradeRuleOfMachine(String app, String ip, int port, List<DegradeRuleEntity> rules) {
         return setRules(app, ip, port, DEGRADE_RULE_TYPE, rules);
     }
 
-    /**
+    *//**
      * set rules of the machine. rules == null will return immediately;
      * rules.isEmpty() means setting the rules to empty.
      *
@@ -505,7 +443,7 @@ public class SentinelApiClient {
      * @param port
      * @param rules
      * @return whether successfully set the rules.
-     */
+     *//*
     public boolean setSystemRuleOfMachine(String app, String ip, int port, List<SystemRuleEntity> rules) {
         return setRules(app, ip, port, SYSTEM_RULE_TYPE, rules);
     }
@@ -692,5 +630,5 @@ public class SentinelApiClient {
             logger.warn("Error when fetching cluster sever all config and basic info", ex);
             return AsyncUtils.newFailedFuture(ex);
         }
-    }
+    }*/
 }

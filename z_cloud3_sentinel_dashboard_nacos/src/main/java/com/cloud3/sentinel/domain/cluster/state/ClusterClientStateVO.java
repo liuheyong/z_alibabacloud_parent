@@ -15,7 +15,7 @@
  */
 package com.cloud3.sentinel.domain.cluster.state;
 
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.ClusterClientInfoVO;
+import com.cloud3.sentinel.domain.cluster.ClusterClientInfoVO;
 
 /**
  * @author Eric Zhao

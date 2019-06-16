@@ -15,11 +15,10 @@
  */
 package com.cloud3.sentinel.repository.rule;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.AuthorityRuleEntity;
-
+import com.cloud3.sentinel.datasource.entity.rule.AuthorityRuleEntity;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * In-memory storage for authority rules.

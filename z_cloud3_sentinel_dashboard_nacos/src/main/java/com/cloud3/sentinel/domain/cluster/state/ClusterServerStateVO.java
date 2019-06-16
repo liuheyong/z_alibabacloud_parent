@@ -15,12 +15,12 @@
  */
 package com.cloud3.sentinel.domain.cluster.state;
 
+import com.cloud3.sentinel.domain.cluster.ConnectionGroupVO;
+import com.cloud3.sentinel.domain.cluster.config.ServerFlowConfig;
+import com.cloud3.sentinel.domain.cluster.config.ServerTransportConfig;
+
 import java.util.List;
 import java.util.Set;
-
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.ConnectionGroupVO;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerFlowConfig;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerTransportConfig;
 
 /**
  * @author Eric Zhao

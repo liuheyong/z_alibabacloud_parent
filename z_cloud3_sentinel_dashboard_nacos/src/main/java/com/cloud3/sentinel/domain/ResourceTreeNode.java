@@ -15,18 +15,11 @@
  */
 package com.cloud3.sentinel.domain;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.alibaba.csp.sentinel.command.vo.NodeVo;
-
 /**
  * @author leyou
  */
 public class ResourceTreeNode {
-    private String id;
+    /*private String id;
     private String parentId;
     private String resource;
 
@@ -90,10 +83,10 @@ public class ResourceTreeNode {
         search(this, searchKey);
     }
 
-    /**
+    *//**
      * This node is visible only when searchKey matches this.resource or at least
      * one of this's children is visible
-     */
+     *//*
     private boolean search(ResourceTreeNode node, String searchKey) {
         // empty matches all
         if (searchKey == null || searchKey.isEmpty() ||
@@ -237,6 +230,6 @@ public class ResourceTreeNode {
 
     public void setChildren(List<ResourceTreeNode> children) {
         this.children = children;
-    }
+    }*/
 }
 

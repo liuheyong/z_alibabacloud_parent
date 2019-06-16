@@ -15,23 +15,22 @@
  */
 package com.cloud3.sentinel.discovery;
 
-import java.util.Objects;
-
-import com.alibaba.csp.sentinel.dashboard.config.DashboardConfig;
-import com.alibaba.csp.sentinel.util.StringUtil;
-
 public class MachineInfo implements Comparable<MachineInfo> {
+    @Override
+    public int compareTo(MachineInfo o) {
+        return 0;
+    }
 
-    private String app = "";
+    /*private String app = "";
     private String hostname = "";
     private String ip = "";
     private Integer port = -1;
     private long lastHeartbeat;
     private long heartbeatVersion;
 
-    /**
+    *//**
      * Indicates the version of Sentinel client (since 0.2.0).
-     */
+     *//*
     private String version;
 
     public static MachineInfo of(String app, String ip, Integer port) {
@@ -100,11 +99,11 @@ public class MachineInfo implements Comparable<MachineInfo> {
         return delta < DashboardConfig.getUnhealthyMachineMillis();
     }
     
-    /**
+    *//**
      * whether dead should be removed
      * 
      * @return
-     */
+     *//*
     public boolean isDead() {
         if (DashboardConfig.getAutoRemoveMachineMillis() > 0) {
             long delta = System.currentTimeMillis() - lastHeartbeat;
@@ -164,12 +163,12 @@ public class MachineInfo implements Comparable<MachineInfo> {
         return Objects.hash(app, ip, port);
     }
 
-    /**
+    *//**
      * Information for log
      *
      * @return
-     */
+     *//*
     public String toLogString() {
         return app + "|" + ip + "|" + port + "|" + version;
-    }
+    }*/
 }

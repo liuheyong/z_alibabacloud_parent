@@ -15,10 +15,10 @@
  */
 package com.cloud3.sentinel.domain.cluster.request;
 
-import java.util.Set;
+import com.cloud3.sentinel.domain.cluster.config.ServerFlowConfig;
+import com.cloud3.sentinel.domain.cluster.config.ServerTransportConfig;
 
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerFlowConfig;
-import com.alibaba.csp.sentinel.dashboard.domain.cluster.config.ServerTransportConfig;
+import java.util.Set;
 
 /**
  * @author Eric Zhao

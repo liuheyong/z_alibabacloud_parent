@@ -15,25 +15,9 @@
  */
 package com.cloud3.sentinel.controller;
 
-import com.alibaba.csp.sentinel.dashboard.auth.AuthService.PrivilegeType;
-import com.alibaba.csp.sentinel.util.StringUtil;
-import com.cloud3.sentinel.auth.AuthService;
-import com.cloud3.sentinel.client.SentinelApiClient;
-import com.cloud3.sentinel.datasource.entity.rule.SystemRuleEntity;
-import com.cloud3.sentinel.discovery.MachineInfo;
-import com.cloud3.sentinel.domain.Result;
-import com.cloud3.sentinel.repository.rule.InMemSystemRuleStore;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author leyou(lihao)
@@ -41,7 +25,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/system", produces = MediaType.APPLICATION_JSON_VALUE)
 public class SystemController {
-    private static Logger logger = LoggerFactory.getLogger(SystemController.class);
+    /*private static Logger logger = LoggerFactory.getLogger(SystemController.class);
 
     @Autowired
     private InMemSystemRuleStore repository;
@@ -225,5 +209,5 @@ public class SystemController {
     private boolean publishRules(String app, String ip, Integer port) {
         List<SystemRuleEntity> rules = repository.findAllByMachine(MachineInfo.of(app, ip, port));
         return sentinelApiClient.setSystemRuleOfMachine(app, ip, port, rules);
-    }
+    }*/
 }
