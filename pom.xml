@@ -40,7 +40,6 @@
         <module>z_cloud3_nacos_discovery_client_resttemplate</module>
         <module>z_cloud3_nacos_discovery_client_webclient</module>
         <module>z_cloud3_nacos_discovery_server</module>
-        <module>z_cloud3_nacos_discovery_server2</module>
         <!--commons-->
         <module>../z_cloud3_alibabacloud_commons</module>
     </modules>
