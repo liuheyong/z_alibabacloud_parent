@@ -1,6 +1,6 @@
 SpringCloudAlibaba 项目示例
 
-nextPort = 8174
+nextPort = 8188
 
 
 
