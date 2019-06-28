@@ -71,7 +71,11 @@
     <!--依赖管理-->
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>com.cloud3.commons</groupId>
+                <artifactId>z_cloud3_alibabacloud_commons</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
