@@ -46,7 +46,6 @@ public class ZCloud3StreamContentRouteApplication {
 
     }
 
-
     /**
      * 消息消费逻辑
      */
