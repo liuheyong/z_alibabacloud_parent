@@ -49,7 +49,7 @@
             <version>2.0.2.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.cloud3.commons</groupId>
+            <groupId>com.cloud3.com.alibabacloud.commons</groupId>
             <artifactId>z_cloud3_alibabacloud_commons</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>

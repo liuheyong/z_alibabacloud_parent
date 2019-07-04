@@ -40,7 +40,7 @@
         <module>z_cloud3_nacos_discovery_client_resttemplate</module>
         <module>z_cloud3_nacos_discovery_client_webclient</module>
         <module>z_cloud3_nacos_discovery_server</module>
-        <!--commons-->
+        <!--com.alibabacloud.commons-->
         <module>../z_cloud3_alibabacloud_commons</module>
     </modules>
 
@@ -72,7 +72,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.cloud3.commons</groupId>
+                <groupId>com.cloud3.com.alibabacloud.commons</groupId>
                 <artifactId>z_cloud3_alibabacloud_commons</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>

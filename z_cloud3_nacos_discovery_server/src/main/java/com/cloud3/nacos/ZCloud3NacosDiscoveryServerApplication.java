@@ -1,6 +1,7 @@
 package com.cloud3.nacos;
 
 import com.cloud3.commons.constants.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +21,7 @@ public class ZCloud3NacosDiscoveryServerApplication {
         SpringApplication.run(ZCloud3NacosDiscoveryServerApplication.class, args);
     }
 
-    //@Slf4j  /*如果注解@Slf4j注入后找不到变量log，需要IDEA安装lombok插件*/
+    @Slf4j
     @RestController
     static class TestController {
 
