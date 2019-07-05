@@ -1,6 +1,5 @@
-SpringCloudAlibaba 项目示例
+SpringCloudAlibaba 项目
 
-nextPort = 8188
 
 
 
